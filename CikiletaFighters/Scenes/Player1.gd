@@ -44,4 +44,5 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite.play("JumpInAir")
 	if is_on_floor():
 		jump = false
-	print(_velocity)
+	print(_velocity.x)
+	
