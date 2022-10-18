@@ -11,15 +11,15 @@ func _physics_process(delta: float) -> void:
 	_velocity.y += gravity * delta
 	_velocity = move_and_slide(_velocity,Vector2.UP)
 	var _horizontal_direction =(
-	Input.get_action_strength("p2_right")
-	- Input.get_action_strength("p2_left")
+	Input.get_action_strength("p1_right")
+	- Input.get_action_strength("p1_left")
 	)
-	
+	#animation walk,run,idle
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
 	if _velocity.x > 0:
 		$AnimatedSprite.flip_h = false
-	if Input.is_action_pressed("p2_walk"):
+	if Input.is_action_pressed("p1_walk"):
 		speed = 100
 	else:
 		speed = 300
@@ -32,12 +32,12 @@ func _physics_process(delta: float) -> void:
 		else:
 			$AnimatedSprite.play("Idle")
 
-	if Input.is_action_just_pressed("p2_up") and is_on_floor():
+	if Input.is_action_just_pressed("p1_up") and is_on_floor():
 		_velocity.y = -jump_power
 		jump = true
 		double_jump = 1
 		yield (get_tree().create_timer(0.5),"timeout")
-	if double_jump == 1 and Input.is_action_just_pressed("p2_up"):
+	if double_jump == 1 and Input.is_action_just_pressed("p1_up"):
 		_velocity.y = -jump_power
 		double_jump = 0
 	if jump == true:
