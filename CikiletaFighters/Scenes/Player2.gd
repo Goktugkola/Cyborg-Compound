@@ -16,9 +16,9 @@ func _physics_process(delta: float) -> void:
 	- Input.get_action_strength("ui_left")
 	)
 	
-	if Input.is_action_just_pressed("ui_left"):
+	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
-	if Input.is_action_just_pressed("ui_right"):
+	if _velocity.x > 0:
 		$AnimatedSprite.flip_h = false
 	if Input.is_action_pressed("ui_walk"):
 		speed = 100
@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			$AnimatedSprite.play("Idle")
 
-	if Input.is_action_just_released("ui_up") and is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		_velocity.y = -jump_power
 		jump = true
 		double_jump = 1
