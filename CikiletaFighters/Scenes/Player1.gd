@@ -45,4 +45,5 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jump = false
 	print(_velocity.x)
+	#cu
 	
