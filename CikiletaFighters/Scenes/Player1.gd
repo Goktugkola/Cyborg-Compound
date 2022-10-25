@@ -5,7 +5,7 @@ var _velocity = Vector2.ZERO
 var jump = false
 export var jump_power := 200.0
 var double_jump = 0
-
+export var Health = 100
 
 func _physics_process(delta: float) -> void:
 	_velocity.y += gravity * delta
@@ -31,7 +31,11 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.play("Walk")
 		else:
 			$AnimatedSprite.play("Idle")
-
+		if Input.is_action_just_pressed("p1_attack"):
+			$Area2D/CollisionShape2D.disabled = false
+			yield (get_tree().create_timer(0.1),"timeout")
+			$Area2D/CollisionShape2D.disabled = true
+			
 	if Input.is_action_just_pressed("p1_up") and is_on_floor():
 		_velocity.y = -jump_power
 		jump = true
@@ -46,4 +50,6 @@ func _physics_process(delta: float) -> void:
 		jump = false
 	print(_velocity)
 	#cu
-	
+func _on_Hurtbox_area_entered(area):
+	Health = Health -5
+	pass # Replace with function body.
