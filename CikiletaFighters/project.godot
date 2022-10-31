@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://Scenes/bullet.gd"
+} ]
+_global_script_class_icons={
+"Projectile": ""
+}
+
 [application]
 
 config/name="cikiletaFighters"
