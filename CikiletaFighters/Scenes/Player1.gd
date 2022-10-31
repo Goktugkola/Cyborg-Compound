@@ -6,6 +6,9 @@ var jump = false
 export var jump_power := 200.0
 var double_jump = 0
 export var Health = 100
+var shape_pos
+func _ready():
+		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
 
 func _physics_process(delta: float) -> void:
 	_velocity.y += gravity * delta
@@ -14,11 +17,14 @@ func _physics_process(delta: float) -> void:
 	Input.get_action_strength("p1_right")
 	- Input.get_action_strength("p1_left")
 	)
+	
 	#animation walk,run,idle
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
+		$hitboxpivot/swordhitbox/CollisionShape2D.position.x = -shape_pos
 	if _velocity.x > 0:
 		$AnimatedSprite.flip_h = false
+		$hitboxpivot/swordhitbox/CollisionShape2D.position.x = shape_pos
 	if Input.is_action_pressed("p1_walk"):
 		speed = 100
 	else:
@@ -31,11 +37,12 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.play("Walk")
 		else:
 			$AnimatedSprite.play("Idle")
-		if Input.is_action_just_pressed("p1_attack"):
+		if Input.is_action_just_pressed("p1_melee"):
 			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
 			yield (get_tree().create_timer(0.1),"timeout")
 			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
 			
+	
 	if Input.is_action_just_pressed("p1_up") and is_on_floor():
 		_velocity.y = -jump_power
 		jump = true
@@ -55,6 +62,6 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite.play("JumpInAir")
 	
 func _on_Hurtbox_area_entered(area):
-	Health = Health -5
+	Health -=5
 	
 	pass # Replace with function body.
