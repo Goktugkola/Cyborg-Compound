@@ -17,8 +17,10 @@ func _physics_process(delta: float) -> void:
 	#animation walk,run,idle
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
+		$hitboxpivot/swordhitbox.position(25,15)
 	if _velocity.x > 0:
 		$AnimatedSprite.flip_h = false
+		$hitboxpivot/swordhitbox/CollisionShape2D.position (-25,-15)
 	if Input.is_action_pressed("p1_walk"):
 		speed = 100
 	else:
@@ -50,6 +52,8 @@ func _physics_process(delta: float) -> void:
 		jump = false
 	print(_velocity)
 	#cu
+	
 func _on_Hurtbox_area_entered(area):
 	Health = Health -5
+	
 	pass # Replace with function body.
