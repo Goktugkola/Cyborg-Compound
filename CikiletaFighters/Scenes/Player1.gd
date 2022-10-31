@@ -17,10 +17,10 @@ func _physics_process(delta: float) -> void:
 	#animation walk,run,idle
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
-		$hitboxpivot/swordhitbox.position(25,15)
+		$hitboxpivot/swordhitbox.get_transform(-20,-15)
 	if _velocity.x > 0:
+		$hitboxpivot/swordhitbox.get_transform(20,-15)
 		$AnimatedSprite.flip_h = false
-		$hitboxpivot/swordhitbox/CollisionShape2D.position (-25,-15)
 	if Input.is_action_pressed("p1_walk"):
 		speed = 100
 	else:
@@ -34,9 +34,9 @@ func _physics_process(delta: float) -> void:
 		else:
 			$AnimatedSprite.play("Idle")
 		if Input.is_action_just_pressed("p1_attack"):
-			$Area2D/CollisionShape2D.disabled = false
+			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
 			yield (get_tree().create_timer(0.1),"timeout")
-			$Area2D/CollisionShape2D.disabled = true
+			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
 			
 	if Input.is_action_just_pressed("p1_up") and is_on_floor():
 		_velocity.y = -jump_power

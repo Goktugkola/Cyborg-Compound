@@ -188,8 +188,9 @@ shape = SubResource( 1 )
 position = Vector2( 0, -4 )
 
 [node name="swordhitbox" parent="hitboxpivot" instance=ExtResource( 7 )]
+position = Vector2( 20, -15 )
 
 [node name="CollisionShape2D" parent="hitboxpivot/swordhitbox" index="0"]
-position = Vector2( 25, -15 )
+position = Vector2( 0, 0 )
 
 [editable path="hitboxpivot/swordhitbox"]
