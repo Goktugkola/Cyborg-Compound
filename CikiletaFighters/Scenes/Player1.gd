@@ -17,9 +17,7 @@ func _physics_process(delta: float) -> void:
 	#animation walk,run,idle
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
-		$hitboxpivot/swordhitbox.get_transform(-20,-15)
 	if _velocity.x > 0:
-		$hitboxpivot/swordhitbox.get_transform(20,-15)
 		$AnimatedSprite.flip_h = false
 	if Input.is_action_pressed("p1_walk"):
 		speed = 100
@@ -43,6 +41,8 @@ func _physics_process(delta: float) -> void:
 		jump = true
 		double_jump = 1
 		yield (get_tree().create_timer(0.5),"timeout")
+	if Input.is_action_just_released("p1_up") and _velocity.y < 0:
+			_velocity.y/=2
 	if double_jump == 1 and Input.is_action_just_pressed("p1_up"):
 		_velocity.y = -jump_power
 		double_jump = 0
@@ -51,7 +51,8 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jump = false
 	print(_velocity)
-	#cu
+	if _velocity.y != 0:
+		$AnimatedSprite.play("JumpInAir")
 	
 func _on_Hurtbox_area_entered(area):
 	Health = Health -5
