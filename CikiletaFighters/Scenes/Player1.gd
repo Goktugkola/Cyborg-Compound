@@ -56,11 +56,10 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite.play("JumpInAir")
 	if is_on_floor():
 		jump = false
-	print(_velocity)
 	if _velocity.y != 0:
 		$AnimatedSprite.play("JumpInAir")
 	
 func _on_Hurtbox_area_entered(area):
 	Health -=5
-	
+	print(Health)
 	pass # Replace with function body.

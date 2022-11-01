@@ -6,7 +6,7 @@ var jump = false
 export var fall_gravity_scale := 150.00
 export var jump_power := 200.0
 var double_jump = 0
-export var Healt = 100
+export var Health = 100
 
 func _physics_process(delta: float) -> void:
 	_velocity.y += gravity * delta
@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite.play("JumpInAir")
 	if is_on_floor():
 		jump = false
+	print(Health)
 func _on_Hurtbox_area_entered(area):
-	Healt -=5
+	Health -=5
 	
