@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 	Input.get_action_strength("p1_right")
 	- Input.get_action_strength("p1_left")
 	)
-	
 	#animation walk,run,idle
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true

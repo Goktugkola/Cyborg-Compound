@@ -193,4 +193,7 @@ position = Vector2( 0, -15 )
 [node name="CollisionShape2D" parent="hitboxpivot/swordhitbox" index="0"]
 position = Vector2( 20, 0 )
 
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+[connection signal="area_exited" from="hitboxpivot/swordhitbox" to="." method="_on_swordhitbox_area_exited"]
+
 [editable path="hitboxpivot/swordhitbox"]
