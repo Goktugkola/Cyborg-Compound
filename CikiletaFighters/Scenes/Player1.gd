@@ -5,11 +5,11 @@ var _velocity = Vector2.ZERO
 var jump = false
 export var jump_power := 200.0
 var double_jump = 0
-export var Health = 100
+var Health = 100
 var shape_pos
 func _ready():
 		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
-
+	
 func _physics_process(delta: float) -> void:
 	_velocity.y += gravity * delta
 	_velocity = move_and_slide(_velocity,Vector2.UP)
@@ -36,6 +36,8 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.play("Walk")
 		else:
 			$AnimatedSprite.play("Idle")
+			
+	###### CCC MELEE ATACK CCC ######
 		if Input.is_action_just_pressed("p1_melee"):
 			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
 			yield (get_tree().create_timer(0.1),"timeout")

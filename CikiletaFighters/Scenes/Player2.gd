@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	Input.get_action_strength("ui_right")
 	- Input.get_action_strength("ui_left")
 	)
-	
+	$HealthBar.value = Health;
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
 	if _velocity.x > 0:
@@ -32,6 +32,10 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.play("Walk")
 		else:
 			$AnimatedSprite.play("Idle")
+	if Input.is_action_just_pressed("p2_melee"):
+			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
+			yield (get_tree().create_timer(0.1),"timeout")
+			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
 
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		_velocity.y = -jump_power
@@ -46,6 +50,6 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jump = false
 	print(Health)
-func _on_Hurtbox_area_entered(area):
+func _on_Hurtbox_area_entered():
 	Health -=5
 	

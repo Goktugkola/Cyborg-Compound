@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="cikiletaFighters"
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://Scenes/livil1.tscn"
 config/icon="res://icon.png"
 
 [gui]
@@ -58,6 +58,11 @@ p1_walk={
 p1_melee={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":84,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+p2_melee={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777351,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
