@@ -20,3 +20,9 @@ current = true
 
 [node name="Player2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 590, 306 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 450.0
+margin_top = 199.0
+margin_right = 617.0
+margin_bottom = 239.0
