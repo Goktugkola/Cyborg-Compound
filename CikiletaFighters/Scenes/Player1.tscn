@@ -180,15 +180,12 @@ frames = SubResource( 2 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -9.5 )
 shape = SubResource( 1 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
-visible = false
 
 [node name="hitboxpivot" type="Position2D" parent="."]
-visible = false
 position = Vector2( 0, -4 )
 
 [node name="swordhitbox" parent="hitboxpivot" instance=ExtResource( 7 )]
@@ -200,6 +197,5 @@ position = Vector2( 20, 0 )
 [node name="HealthBar" parent="." instance=ExtResource( 8 )]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
-[connection signal="area_exited" from="hitboxpivot/swordhitbox" to="." method="_on_swordhitbox_area_exited"]
 
 [editable path="hitboxpivot/swordhitbox"]

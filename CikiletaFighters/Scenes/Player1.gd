@@ -5,11 +5,11 @@ var _velocity = Vector2.ZERO
 var jump = false
 export var jump_power := 200.0
 var double_jump = 0
-var Health = 100
+export var Health = 100
 var shape_pos
 func _ready():
 		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
-	
+pass
 func _physics_process(delta: float) -> void:
 	_velocity.y += gravity * delta
 	_velocity = move_and_slide(_velocity,Vector2.UP)
@@ -17,6 +17,8 @@ func _physics_process(delta: float) -> void:
 	Input.get_action_strength("p1_right")
 	- Input.get_action_strength("p1_left")
 	)
+	##Health Bar##
+	$HealthBar.value = Health
 	#animation walk,run,idle
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
@@ -60,7 +62,11 @@ func _physics_process(delta: float) -> void:
 		jump = false
 	if _velocity.y != 0:
 		$AnimatedSprite.play("JumpInAir")
-	
+
+
+
+
+
 func _on_Hurtbox_area_entered(area):
 	Health -=5
 	print(Health)
