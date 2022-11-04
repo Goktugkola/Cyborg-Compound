@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		jump = false
 		
-func _on_Hurtbox_area_entered(area):
+func _on_Hurtbox_area_entered(_area):
 	Health -=5
 	print(Health)
 	

@@ -1,0 +1,23 @@
+[gd_scene format=2]
+
+[node name="Livil1Ui" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="WhoWin" type="RichTextLabel" parent="."]
+margin_left = 450.0
+margin_top = 195.0
+margin_right = 577.0
+margin_bottom = 235.0
+
+[node name="p2winstatus" type="RichTextLabel" parent="."]
+margin_left = 191.0
+margin_top = 65.0
+margin_right = 258.0
+margin_bottom = 105.0
+
+[node name="p1winstatus" type="RichTextLabel" parent="."]
+margin_left = 763.0
+margin_top = 65.0
+margin_right = 833.0
+margin_bottom = 105.0

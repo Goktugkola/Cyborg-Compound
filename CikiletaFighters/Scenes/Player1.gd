@@ -7,6 +7,8 @@ export var jump_power := 200.0
 var double_jump = 0
 export var Health = 100
 var shape_pos
+
+
 func _ready():
 		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
 pass
@@ -67,7 +69,7 @@ func _physics_process(delta: float) -> void:
 
 
 
-func _on_Hurtbox_area_entered(area):
+func _on_Hurtbox_area_entered(_area):
 	Health -=5
 	print(Health)
 	pass # Replace with function body.
