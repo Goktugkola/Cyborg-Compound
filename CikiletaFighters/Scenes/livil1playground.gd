@@ -16,7 +16,7 @@ func _physics_process(_delta):
 		p1wonstatus = p1wonstatus + 1
 		$Livil1Ui/p1winstatus.clear()
 		$Livil1Ui/p1winstatus.add_text("P1 Win Count : ")
-		t.start()
+		t.start(10)
 		yield (t,"timeout")
 
 	elif($Player2/HealthBar.value <= 0 && once == true):
@@ -25,7 +25,7 @@ func _physics_process(_delta):
 		p2wonstatus = p2wonstatus + 1
 		$Livil1Ui/p2winstatus.clear()
 		$Livil1Ui/p2winstatus.add_text("P2 Win Count : ")
-		t.start()
+		t.start(10)
 		yield(t,"timeout")
 	if($Player1/HealthBar.value <= 0 || $Player2/HealthBar.value <= 0):
 # warning-ignore:return_value_discarded

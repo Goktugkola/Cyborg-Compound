@@ -7,10 +7,14 @@ export var jump_power := 200.0
 var double_jump = 0
 export var Health = 100
 var shape_pos
-
+var t = Timer. new()
 
 func _ready():
 		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
+		t.set_wait_time(3)
+		t.set_one_shot(true)
+		self.add_child(t)
+
 pass
 func _physics_process(delta: float) -> void:
 	_velocity.y += gravity * delta
@@ -45,8 +49,11 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("p1_melee"):
 			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
 			yield (get_tree().create_timer(0.1),"timeout")
+			t.start(10)
+			yield (t,"timeout")
 			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
-			
+			t.start(10)
+			yield (t,"timeout")
 	
 	if Input.is_action_just_pressed("p1_up") and is_on_floor():
 		_velocity.y = -jump_power

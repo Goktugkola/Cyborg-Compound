@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="cikiletaFighters"
-run/main_scene="res://Scenes/livil1.tscn"
+run/main_scene="res://Scenes/livil1playground.tscn"
 config/icon="res://icon.png"
 
 [gui]
