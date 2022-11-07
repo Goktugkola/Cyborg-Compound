@@ -20,6 +20,7 @@ func _physics_process(_delta):
 		G.p1wonstatus = G.p1wonstatus + 1
 		$Livil1Ui/p1winstatus.clear()
 		$Livil1Ui/p1winstatus.add_text("P1 Win Count : ")
+		
 
 	elif($livil1playground/Player2/HealthBar.value <= 0 && once == true):
 		$Livil1Ui/WhoWin.add_text("PLAYER 1 WON")

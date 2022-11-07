@@ -56,6 +56,6 @@ func _physics_process(delta: float) -> void:
 		jump = false
 		
 func _on_Hurtbox_area_entered(_area):
-	Health -=5
+	Health -=10
 	print(Health)
 	
