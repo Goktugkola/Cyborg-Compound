@@ -195,10 +195,10 @@ position = Vector2( 0, -15 )
 position = Vector2( 20, 0 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 8 )]
-margin_left = -20.0
-margin_top = -40.0
-margin_right = 20.0
-margin_bottom = -34.0
+margin_left = -5.0
+margin_top = -35.0
+margin_right = 5.0
+margin_bottom = -33.0
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

@@ -33,7 +33,9 @@ margin_right = 193.0
 margin_bottom = 123.0
 
 [node name="HealthBar2" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.853
 margin_left = 766.0
 margin_top = 105.0
 margin_right = 832.0
 margin_bottom = 121.0
+rect_pivot_offset = Vector2( 50, 8 )
