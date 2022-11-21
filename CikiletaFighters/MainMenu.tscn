@@ -71,4 +71,5 @@ scale = Vector2( 0.178594, 0.156144 )
 texture = ExtResource( 3 )
 
 [connection signal="pressed" from="optionsegment/PLAY" to="." method="_on_PLAY_pressed"]
+[connection signal="pressed" from="optionsegment/OPTIONS" to="." method="_on_OPTIONS_pressed"]
 [connection signal="pressed" from="optionsegment/QUIT" to="." method="_on_QUIT_pressed"]
