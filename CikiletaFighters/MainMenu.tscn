@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Theme.tres" type="Theme" id=1]
 [ext_resource path="res://MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/greg-rosenke-6QnEf_b47eA-unsplash.jpg" type="Texture" id=3]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 1024.0
@@ -17,43 +21,54 @@ margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="optionsegment" type="VBoxContainer" parent="."]
-margin_top = 150.0
-margin_right = 500.0
-margin_bottom = 450.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 362.0
+margin_top = 93.0
+margin_right = 662.0
+margin_bottom = 393.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 5
 size_flags_vertical = 5
 theme = ExtResource( 1 )
+custom_constants/separation = 10
 alignment = 1
 
 [node name="PLAY" type="Button" parent="optionsegment"]
-margin_top = 116.0
-margin_right = 500.0
-margin_bottom = 130.0
+margin_top = 107.0
+margin_right = 300.0
+margin_bottom = 121.0
 theme = ExtResource( 1 )
 text = "PLAY"
 
 [node name="OPTIONS" type="Button" parent="optionsegment"]
-margin_top = 134.0
-margin_right = 500.0
-margin_bottom = 148.0
+margin_top = 131.0
+margin_right = 300.0
+margin_bottom = 145.0
 theme = ExtResource( 1 )
 text = "OPTIONS"
 
 [node name="CREDITS" type="Button" parent="optionsegment"]
-margin_top = 152.0
-margin_right = 500.0
-margin_bottom = 166.0
+margin_top = 155.0
+margin_right = 300.0
+margin_bottom = 169.0
 theme = ExtResource( 1 )
 text = "CREDITS"
 
 [node name="QUIT" type="Button" parent="optionsegment"]
-margin_top = 170.0
-margin_right = 500.0
-margin_bottom = 184.0
+margin_top = 179.0
+margin_right = 300.0
+margin_bottom = 193.0
 theme = ExtResource( 1 )
 text = "QUIT"
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+light_mask = 0
+position = Vector2( 510.525, 299.375 )
+scale = Vector2( 0.178594, 0.156144 )
+texture = ExtResource( 3 )
 
 [connection signal="pressed" from="optionsegment/PLAY" to="." method="_on_PLAY_pressed"]
 [connection signal="pressed" from="optionsegment/QUIT" to="." method="_on_QUIT_pressed"]
