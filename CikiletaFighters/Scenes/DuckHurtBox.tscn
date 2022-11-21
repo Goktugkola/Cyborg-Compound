@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=42]
+extents = Vector2( 5, 9 )
+
+[node name="DuckHurtbox" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 1, 0.59375, 0.59375, 1 )
+self_modulate = Color( 1, 0.59375, 0.59375, 1 )
+shape = SubResource( 42 )

@@ -64,7 +64,14 @@ func _physics_process(delta: float) -> void:
 		jump = false
 	if _velocity.y != 0:
 		$AnimatedSprite.play("JumpInAir")
-
+		#####Duck#####
+		if Input.is_action_pressed("p1_duck"):
+			$Hurtbox.collision_layer = 5
+			$DuckHurtBox.collision_layer = 1
+		else:
+			$Hurtbox.collision_layer = 1
+			$DuckHurtBox.collision_layer = 5
+		
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Assets/player1/run.png" type="Texture" id=1]
 [ext_resource path="res://Assets/player1/Woodcutter_walk.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Hurtbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/hitbox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/DuckHurtBox.tscn" type="PackedScene" id=9]
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 3 )
@@ -180,12 +181,15 @@ frames = SubResource( 2 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -10 )
 shape = SubResource( 1 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="hitboxpivot" type="Position2D" parent="."]
+visible = false
 position = Vector2( 0, -4 )
 
 [node name="swordhitbox" parent="hitboxpivot" instance=ExtResource( 7 )]
@@ -195,10 +199,13 @@ position = Vector2( 0, -15 )
 position = Vector2( 20, 0 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 8 )]
+visible = false
 margin_left = -5.0
 margin_top = -35.0
 margin_right = 5.0
 margin_bottom = -33.0
+
+[node name="DuckHurtBox" parent="." instance=ExtResource( 9 )]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
