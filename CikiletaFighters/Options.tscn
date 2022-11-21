@@ -21,3 +21,5 @@ margin_bottom = 159.0
 margin_right = 226.0
 margin_bottom = 40.0
 text = "FULLSCREEN                 "
+
+[connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_CheckButton_toggled"]
