@@ -207,6 +207,8 @@ margin_bottom = -33.0
 
 [node name="DuckHurtBox" parent="." instance=ExtResource( 9 )]
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="hitboxpivot/swordhitbox"]

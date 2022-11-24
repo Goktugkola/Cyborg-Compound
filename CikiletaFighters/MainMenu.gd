@@ -17,5 +17,11 @@ func _on_QUIT_pressed():
 
 
 func _on_PLAY_pressed():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://Scenes/livil10.tscn")
+	pass # Replace with function body.
+
+
+func _on_OPTIONS_pressed():
+	
 	pass # Replace with function body.

@@ -8,7 +8,6 @@ var double_jump = 0
 export var Health = 100
 var shape_pos
 
-
 func _ready():
 		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
 
@@ -46,13 +45,13 @@ func _physics_process(delta: float) -> void:
 	###### CCC MELEE ATACK CCC ######
 	if Input.is_action_just_pressed("p1_melee"):
 		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
-		yield (get_tree().create_timer(0.1),"timeout")
+		$Timer.start(0.1); yield($Timer, "timeout")
 		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
 	if Input.is_action_just_pressed("p1_up") and is_on_floor():
 		_velocity.y = -jump_power
 		jump = true
 		double_jump = 1
-		yield (get_tree().create_timer(0.5),"timeout")
+		$Timer.start(1); yield($Timer, "timeout")
 	if Input.is_action_just_released("p1_up") and _velocity.y < 0:
 			_velocity.y/=2
 	if double_jump == 1 and Input.is_action_just_pressed("p1_up"):
@@ -78,5 +77,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_Hurtbox_area_entered(_area):
 	Health -=10
-	print(Health)
 	pass # Replace with function body.

@@ -201,6 +201,8 @@ margin_top = -40.0
 margin_right = 20.0
 margin_bottom = -34.0
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="hitboxpivot/swordhitbox"]

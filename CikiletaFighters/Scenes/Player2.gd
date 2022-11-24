@@ -39,14 +39,14 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.play("Idle")
 	if Input.is_action_just_pressed("p2_melee"):
 			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
-			yield (get_tree().create_timer(0.1),"timeout")
+			$Timer.start(0.1); yield($Timer, "timeout")
 			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
 
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		_velocity.y = -jump_power
 		jump = true
 		double_jump = 1
-		yield (get_tree().create_timer(1),"timeout")
+		$Timer.start(1); yield($Timer, "timeout")
 	if double_jump == 1 and Input.is_action_just_pressed("ui_up"):
 		_velocity.y = -jump_power
 		double_jump = 0
@@ -57,5 +57,4 @@ func _physics_process(delta: float) -> void:
 		
 func _on_Hurtbox_area_entered(_area):
 	Health -=10
-	print(Health)
 	
