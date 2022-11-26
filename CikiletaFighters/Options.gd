@@ -12,6 +12,7 @@ extends Control
 #	pass
 
 
+# warning-ignore:unused_argument
 func _on_CheckButton_toggled(button_pressed):
 	OS.set_window_fullscreen(!OS.window_fullscreen)
 	pass # Replace with function body.

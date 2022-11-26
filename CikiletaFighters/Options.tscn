@@ -22,4 +22,11 @@ margin_right = 226.0
 margin_bottom = 40.0
 text = "FULLSCREEN                 "
 
+[node name="Back" type="Button" parent="."]
+margin_left = 187.0
+margin_top = 70.0
+margin_right = 258.0
+margin_bottom = 90.0
+text = "Back"
+
 [connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_CheckButton_toggled"]

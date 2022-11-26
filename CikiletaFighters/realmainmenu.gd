@@ -1,11 +1,6 @@
-extends Node
-var p1wonstatus = 1
-var p2wonstatus = 1
-var x = 0
-var P1_velocity = Vector2.ZERO
-var P2_velocity = Vector2.ZERO
-var p1_direction
-var p2_direction
+extends Node2D
+
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -14,7 +9,13 @@ var p2_direction
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-
+func _process(_delta):
+	if $Control/optionsegment/OPTIONS.pressed:
+		$Options.visible = true
+		$Control.visible = false
+	if $Options/Back.pressed:
+		$Options.visible = false
+		$Control.visible = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

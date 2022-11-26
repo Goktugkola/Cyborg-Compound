@@ -22,7 +22,6 @@ func _process(_delta):
 		$Livil1Ui/p1winstatus.clear()
 		$Livil1Ui/p1winstatus.add_text("P1 Win Count : ")
 		print(G.p1wonstatus)
-		print($time)
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Scenes/livil10.tscn")
 
@@ -38,6 +37,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("reset"):
 		G.x = G.x + 1
 		print(G.x)
+	print(G.P1_velocity)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

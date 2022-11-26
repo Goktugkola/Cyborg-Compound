@@ -8,10 +8,20 @@ export var jump_power := 200.0
 var double_jump = 0
 export var Health = 100
 var shape_pos
+const bullet_path = preload('bullet2.tscn')
+var bullet_x
+var direction : bool = false
 func _ready():
 	shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
+	bullet_x = $Node2D/Position2D.position.x
 pass
+func _shoot():
+	var bullet =  bullet_path.instance()
+	get_parent().add_child(bullet)
+	bullet.position = $Node2D/Position2D.global_position
 func _physics_process(delta: float) -> void:
+	G.P2_velocity = _velocity
+	G.p2_direction = direction
 	_velocity.y += gravity * delta
 	_velocity = move_and_slide(_velocity,Vector2.UP)
 	var _horizontal_direction =(
@@ -21,10 +31,14 @@ func _physics_process(delta: float) -> void:
 	$HealthBar.value = Health
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
+		$Node2D/Position2D.position.x = -bullet_x
 		$hitboxpivot/swordhitbox/CollisionShape2D.position.x = -shape_pos
+		direction = false
 	if _velocity.x > 0:
 		$hitboxpivot/swordhitbox/CollisionShape2D.position.x = shape_pos
 		$AnimatedSprite.flip_h = false
+		direction = true
+		$Node2D/Position2D.position.x = bullet_x
 	if Input.is_action_pressed("ui_walk"):
 		speed = 100
 	else:
@@ -41,7 +55,9 @@ func _physics_process(delta: float) -> void:
 			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
 			$Timer.start(0.1); yield($Timer, "timeout")
 			$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
-
+	# BULLET!
+	if Input.is_action_just_pressed("p2_shoot"):
+		_shoot()
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		_velocity.y = -jump_power
 		jump = true

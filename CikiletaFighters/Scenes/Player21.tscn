@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Hurtbox.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/hitbox.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Player.tres" type="Shape2D" id=9]
 
 [sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 3 )
@@ -168,10 +169,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 20 )
-
 [node name="Player2" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -182,9 +181,10 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -10 )
-shape = SubResource( 1 )
+shape = ExtResource( 9 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
+collision_layer = 2
 
 [node name="hitboxpivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
@@ -202,6 +202,10 @@ margin_right = 20.0
 margin_bottom = -34.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="Node2D"]
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

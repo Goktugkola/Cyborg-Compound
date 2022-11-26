@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Projectile",
 "language": "GDScript",
 "path": "res://Scenes/bullet.gd"
+}, {
+"base": "Node2D",
+"class": "Projectile2",
+"language": "GDScript",
+"path": "res://Scenes/bullet2.gd"
 } ]
 _global_script_class_icons={
-"Projectile": ""
+"Projectile": "",
+"Projectile2": ""
 }
 
 [application]
@@ -100,6 +106,17 @@ p1_shoot={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":89,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+p2_shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":76,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Ground"
+2d_physics/layer_2="Karakterler"
+2d_physics/layer_3="Platformlar"
 
 [physics]
 

@@ -8,7 +8,8 @@ var double_jump = 0
 export var Health = 100
 var shape_pos
 const bullet_path = preload('bullet.tscn')
-
+var bullet_x
+var direction : bool = true
 func _shoot():
 	var bullet =  bullet_path.instance()
 	
@@ -16,10 +17,12 @@ func _shoot():
 	bullet.position = $Node2D/Position2D.global_position
 func _ready():
 		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
-
+		bullet_x = $Node2D/Position2D.position.x
 
 pass
 func _physics_process(delta: float) -> void:
+	G.P1_velocity = _velocity
+	G.p1_direction = direction
 	_velocity.y += gravity * delta
 	_velocity = move_and_slide(_velocity,Vector2.UP)
 	var _horizontal_direction =(
@@ -31,11 +34,14 @@ func _physics_process(delta: float) -> void:
 	#animation walk,run,idle
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
-		$Node2D.rotate(-180)
+		$Node2D/Position2D.position.x = -bullet_x
 		$hitboxpivot/swordhitbox/CollisionShape2D.position.x = -shape_pos
+		direction = false
 	if _velocity.x > 0:
 		$AnimatedSprite.flip_h = false
 		$hitboxpivot/swordhitbox/CollisionShape2D.position.x = shape_pos
+		$Node2D/Position2D.position.x = bullet_x
+		direction = true
 	if Input.is_action_pressed("p1_walk"):
 		speed = 100
 	else:
@@ -74,12 +80,7 @@ func _physics_process(delta: float) -> void:
 	if _velocity.y != 0:
 		$AnimatedSprite.play("JumpInAir")
 		#####Duck#####
-		if Input.is_action_pressed("p1_duck"):
-			$Hurtbox.collision_layer = 5
-			$DuckHurtBox.collision_layer = 1
-		else:
-			$Hurtbox.collision_layer = 1
-			$DuckHurtBox.collision_layer = 5
+
 		
 
 

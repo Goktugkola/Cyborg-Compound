@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Livil1Ui.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/livil10.gd" type="Script" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="YSort"]
 script = ExtResource( 3 )
 
 [node name="livil1playground" parent="." instance=ExtResource( 1 )]
