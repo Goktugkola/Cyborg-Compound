@@ -181,15 +181,12 @@ frames = SubResource( 2 )
 animation = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0, -10 )
 shape = SubResource( 1 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
-visible = false
 
 [node name="hitboxpivot" type="Position2D" parent="."]
-visible = false
 position = Vector2( 0, -4 )
 
 [node name="swordhitbox" parent="hitboxpivot" instance=ExtResource( 7 )]
@@ -199,7 +196,6 @@ position = Vector2( 0, -15 )
 position = Vector2( 20, 0 )
 
 [node name="HealthBar" parent="." instance=ExtResource( 8 )]
-visible = false
 margin_left = -5.0
 margin_top = -35.0
 margin_right = 5.0
@@ -208,6 +204,12 @@ margin_bottom = -33.0
 [node name="DuckHurtBox" parent="." instance=ExtResource( 9 )]
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 1, -19 )
+
+[node name="Position2D" type="Position2D" parent="Node2D"]
+position = Vector2( 19, 0 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 

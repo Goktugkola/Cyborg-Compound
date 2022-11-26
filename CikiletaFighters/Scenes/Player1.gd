@@ -7,7 +7,13 @@ export var jump_power := 200.0
 var double_jump = 0
 export var Health = 100
 var shape_pos
+const bullet_path = preload('bullet.tscn')
 
+func _shoot():
+	var bullet =  bullet_path.instance()
+	
+	get_parent().add_child(bullet)
+	bullet.position = $Node2D/Position2D.global_position
 func _ready():
 		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
 
@@ -25,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	#animation walk,run,idle
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
+		$Node2D.rotate(-180)
 		$hitboxpivot/swordhitbox/CollisionShape2D.position.x = -shape_pos
 	if _velocity.x > 0:
 		$AnimatedSprite.flip_h = false
@@ -47,6 +54,9 @@ func _physics_process(delta: float) -> void:
 		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
 		$Timer.start(0.1); yield($Timer, "timeout")
 		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
+	# BULLET!
+	if Input.is_action_just_pressed("p1_shoot"):
+		_shoot()
 	if Input.is_action_just_pressed("p1_up") and is_on_floor():
 		_velocity.y = -jump_power
 		jump = true
