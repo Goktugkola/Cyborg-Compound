@@ -13,9 +13,11 @@ onready var impact_detectorb:= $sprite_b/impactDetector_b
 
 func _ready():
 	set_as_toplevel(true)
+# warning-ignore:return_value_discarded
 	timer.connect("timeout", self, "queue_free")
 	timer.start(lifetime)
 	
+# warning-ignore:return_value_discarded
 	impact_detectorb.connect("body_entered",self, "_on_impact")
 
 func _physics_process(delta: float) -> void:
