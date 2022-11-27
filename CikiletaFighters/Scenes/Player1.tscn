@@ -171,7 +171,7 @@ animations = [ {
 } ]
 
 [node name="Player1" type="KinematicBody2D"]
-collision_layer = 0
+collision_layer = 4
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -206,7 +206,7 @@ collision_layer = 0
 position = Vector2( 1, -19 )
 
 [node name="Position2D" type="Position2D" parent="Node2D"]
-position = Vector2( 19, 0 )
+position = Vector2( 31, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -10 )
