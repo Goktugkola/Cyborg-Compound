@@ -76,13 +76,9 @@ func _physics_process(delta: float) -> void:
 func _on_Hurtbox_area_entered(_area):
 	Health -=10
 	if G.p1_position.x > G.p2_position.x:
-		while knockbacktime < 1:
-			_velocity.x = 0
-			get_node(".").position.x -= 2
-			knockbacktime += 0.2
+		_velocity.x = 0
+		get_node(".").position.x -= 20
 	else:
-		while knockbacktime < 1:
-			_velocity.x = 0
-			get_node(".").position.x += 2
-			knockbacktime += 0.2
+		_velocity.x = 0
+		get_node(".").position.x += 20
 	
