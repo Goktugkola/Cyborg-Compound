@@ -10,6 +10,7 @@ var shape_pos
 const bullet_path = preload('bullet.tscn')
 var bullet_x
 var direction : bool = true
+var knockbacktime = 0
 func _shoot():
 	var bullet =  bullet_path.instance()
 	
@@ -23,6 +24,7 @@ pass
 func _physics_process(delta: float) -> void:
 	G.P1_velocity = _velocity
 	G.p1_direction = direction
+	G.p1_position = get_node(".").position
 	_velocity.y += gravity * delta
 	_velocity = move_and_slide(_velocity,Vector2.UP)
 	var _horizontal_direction =(
@@ -88,4 +90,15 @@ func _physics_process(delta: float) -> void:
 
 func _on_Hurtbox_area_entered(_area):
 	Health -=10
-	pass # Replace with function body.
+	if G.p1_position.x < G.p2_position.x:
+		while knockbacktime < 1:
+			_velocity.x = 0
+			get_node(".").position.x -= 2
+			knockbacktime += 0.2
+	else:
+		while knockbacktime < 1:
+			_velocity.x = 0
+			get_node(".").position.x += 2
+			knockbacktime += 0.2
+	knockbacktime = 0
+

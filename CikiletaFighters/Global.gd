@@ -6,6 +6,8 @@ var P1_velocity = Vector2.ZERO
 var P2_velocity = Vector2.ZERO
 var p1_direction
 var p2_direction
+var p1_position
+var p2_position
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

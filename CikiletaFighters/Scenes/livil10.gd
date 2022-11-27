@@ -37,7 +37,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("reset"):
 		G.x = G.x + 1
 		print(G.x)
-	print(G.P1_velocity)
+	print(G.p1_position)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
