@@ -7,6 +7,9 @@
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 81.0 ]
+}
 
 [node name="WhoWin" type="RichTextLabel" parent="."]
 margin_left = 450.0
@@ -15,16 +18,16 @@ margin_right = 577.0
 margin_bottom = 235.0
 
 [node name="p2winstatus" type="RichTextLabel" parent="."]
-margin_left = 191.0
-margin_top = 65.0
-margin_right = 258.0
-margin_bottom = 105.0
+margin_left = 351.0
+margin_top = 81.0
+margin_right = 418.0
+margin_bottom = 121.0
 
 [node name="p1winstatus" type="RichTextLabel" parent="."]
-margin_left = 763.0
-margin_top = 65.0
-margin_right = 833.0
-margin_bottom = 105.0
+margin_left = 713.0
+margin_top = 81.0
+margin_right = 783.0
+margin_bottom = 121.0
 
 [node name="HealthBar1" parent="." instance=ExtResource( 1 )]
 margin_left = 127.0
@@ -39,3 +42,17 @@ margin_top = 105.0
 margin_right = 832.0
 margin_bottom = 121.0
 rect_pivot_offset = Vector2( 50, 8 )
+
+[node name="P1" type="RichTextLabel" parent="."]
+margin_left = 197.0
+margin_top = 82.0
+margin_right = 366.0
+margin_bottom = 122.0
+text = "PLAYER 1 WIN COUNT : "
+
+[node name="P2" type="RichTextLabel" parent="."]
+margin_left = 557.0
+margin_top = 82.0
+margin_right = 726.0
+margin_bottom = 122.0
+text = "PLAYER 2 WIN COUNT : "

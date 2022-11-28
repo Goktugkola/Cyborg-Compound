@@ -103,7 +103,7 @@ func _on_Hurtbox_area_entered(_area):
 	Health -=10
 	if G.p1_position.x < G.p2_position.x:
 		_velocity.x = 0
-		get_node(".").position.x -= 20
+		get_node(".").position.x -= (1 / ( Health + 1 ) * 20 ) 
 	else:
 		_velocity.x = 0
 		get_node(".").position.x += 20

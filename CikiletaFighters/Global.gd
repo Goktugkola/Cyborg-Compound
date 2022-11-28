@@ -1,6 +1,6 @@
 extends Node
-var p1wonstatus = 1
-var p2wonstatus = 1
+var p1wonstatus = 0
+var p2wonstatus = 0
 var x = 0
 var P1_velocity = Vector2.ZERO
 var P2_velocity = Vector2.ZERO
