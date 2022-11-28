@@ -90,7 +90,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("p1_duck"):
 			$Hurtbox/CollisionShape2D.set_deferred("disabled",false)
 			$DuckHurtBox/CollisionShape2D.set_deferred("disabled", true)
-
 func _on_Hurtbox_area_entered(_area):
 	yield(get_tree(), "idle_frame")
 	Health -=10
