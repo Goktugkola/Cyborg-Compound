@@ -181,6 +181,7 @@ animation = "Idle"
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
 collision_layer = 4
+priority = 1.0
 
 [node name="hitboxpivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
@@ -198,7 +199,10 @@ margin_right = 5.0
 margin_bottom = -33.0
 
 [node name="DuckHurtBox" parent="." instance=ExtResource( 9 )]
+position = Vector2( 0, 3 )
+scale = Vector2( 1, 0.8 )
 collision_layer = 0
+input_pickable = false
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -209,7 +213,7 @@ position = Vector2( 1, -19 )
 position = Vector2( 31, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -10 )
+position = Vector2( 0, -9 )
 shape = ExtResource( 10 )
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

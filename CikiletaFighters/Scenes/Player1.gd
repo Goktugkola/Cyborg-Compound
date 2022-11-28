@@ -11,6 +11,7 @@ const bullet_path = preload('bullet.tscn')
 var bullet_x
 var direction : bool = true
 var knockbacktime = 0
+
 func _shoot():
 	var bullet =  bullet_path.instance()
 	
@@ -65,6 +66,7 @@ func _physics_process(delta: float) -> void:
 	# BULLET!
 	if Input.is_action_just_pressed("p1_shoot"):
 		_shoot()
+		#jump
 	if Input.is_action_just_pressed("p1_up") and is_on_floor():
 		_velocity.y = -jump_power
 		jump = true
@@ -81,12 +83,14 @@ func _physics_process(delta: float) -> void:
 		jump = false
 	if _velocity.y != 0:
 		$AnimatedSprite.play("JumpInAir")
+
 		#####Duck#####
-
-		
-
-
-
+	if Input.is_action_pressed("p1_duck"):
+		$Hurtbox/CollisionShape2D.set_deferred("disabled",true)
+		$DuckHurtBox/CollisionShape2D.set_deferred("disabled", false)
+	if Input.is_action_just_released("p1_duck"):
+			$Hurtbox/CollisionShape2D.set_deferred("disabled",false)
+			$DuckHurtBox/CollisionShape2D.set_deferred("disabled", true)
 
 func _on_Hurtbox_area_entered(_area):
 	Health -=10

@@ -72,6 +72,13 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite.play("JumpInAir")
 	if is_on_floor():
 		jump = false
+		#Duck
+	if Input.is_action_pressed("p2_duck"):
+		$Hurtbox/CollisionShape2D.set_deferred("disabled",true)
+		$DuckHurtBox/CollisionShape2D.set_deferred("disabled", false)
+	if Input.is_action_just_released("p2_duck"):
+			$Hurtbox/CollisionShape2D.set_deferred("disabled",false)
+			$DuckHurtBox/CollisionShape2D.set_deferred("disabled", true)
 		
 func _on_Hurtbox_area_entered(_area):
 	Health -=10

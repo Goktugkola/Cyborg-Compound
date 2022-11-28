@@ -9,3 +9,4 @@ extents = Vector2( 5, 9 )
 modulate = Color( 1, 0.59375, 0.59375, 1 )
 self_modulate = Color( 1, 0.59375, 0.59375, 1 )
 shape = SubResource( 42 )
+disabled = true
