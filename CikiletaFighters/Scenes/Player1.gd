@@ -32,7 +32,6 @@ func _physics_process(delta: float) -> void:
 	Input.get_action_strength("p1_right")
 	- Input.get_action_strength("p1_left")
 	)
-	##Health Bar##
 	$HealthBar.value = Health
 	#animation walk,run,idle
 	if _velocity.x < 0:
