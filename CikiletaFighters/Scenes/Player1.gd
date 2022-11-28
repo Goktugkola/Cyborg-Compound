@@ -20,12 +20,20 @@ func _shoot():
 func _ready():
 		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
 		bullet_x = $Node2D/Position2D.position.x
+
 pass
-func _movement() -> void:
+func _physics_process(delta: float) -> void:
+	G.P1_velocity = _velocity
+	G.p1_direction = direction
+	G.p1_position = get_node(".").position
+	_velocity.y += gravity * delta
+	_velocity = move_and_slide(_velocity,Vector2.UP)
 	var _horizontal_direction =(
 	Input.get_action_strength("p1_right")
 	- Input.get_action_strength("p1_left")
 	)
+	$HealthBar.value = Health
+	#animation walk,run,idle
 	if _velocity.x < 0:
 		$AnimatedSprite.flip_h = true
 		$Node2D/Position2D.position.x = -bullet_x
@@ -49,20 +57,6 @@ func _movement() -> void:
 		else:
 			$AnimatedSprite.play("Idle")
 			
-func _physics_process(delta: float) -> void:
-	G.P1_velocity = _velocity
-	G.p1_direction = direction
-	G.p1_position = get_node(".").position
-	_velocity.y += gravity * delta
-	_velocity = move_and_slide(_velocity,Vector2.UP)
-	
-	##Health Bar##
-	$HealthBar.value = Health
-	#animation walk,run,idle
-	
-	_movement()
-	
-			
 	###### CCC MELEE ATACK CCC ######
 	if Input.is_action_just_pressed("p1_melee"):
 		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
@@ -73,7 +67,6 @@ func _physics_process(delta: float) -> void:
 		_shoot()
 		#jump
 	if Input.is_action_just_pressed("p1_up") and is_on_floor():
-		
 		_velocity.y = -jump_power
 		jump = true
 		double_jump = 1
@@ -92,7 +85,6 @@ func _physics_process(delta: float) -> void:
 
 		#####Duck#####
 	if Input.is_action_pressed("p1_duck"):
-		
 		$Hurtbox/CollisionShape2D.set_deferred("disabled",true)
 		$DuckHurtBox/CollisionShape2D.set_deferred("disabled", false)
 	if Input.is_action_just_released("p1_duck"):
