@@ -8,9 +8,9 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(_delta):
-	$Livil1Ui/HealthBar1.value = $livil1playground/Player1/HealthBar.value
-	$Livil1Ui/HealthBar2.value = $livil1playground/Player2/HealthBar.value
-	if($livil1playground/Player1/HealthBar.value <= 0 && once == true):
+	$Livil1Ui/HealthBar1.value = $livil1playground/Camera/Player1/HealthBar.value
+	$Livil1Ui/HealthBar2.value = $livil1playground/Camera/Player2/HealthBar.value
+	if($livil1playground/Camera/Player1/HealthBar.value <= 0 && once == true):
 		$Livil1Ui/WhoWin.add_text("PLAYER 2 WON")
 		once = false
 		Engine.time_scale = 0.3
@@ -21,7 +21,7 @@ func _process(_delta):
 
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Scenes/livil10.tscn")
-	if($livil1playground/Player2/HealthBar.value <= 0 && once == true):
+	if($livil1playground/Camera/Player2/HealthBar.value <= 0 && once == true):
 		$Livil1Ui/WhoWin.add_text("PLAYER 1 WON")
 		once = false
 		Engine.time_scale = 0.3
