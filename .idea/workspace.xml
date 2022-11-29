@@ -10,22 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="489c225b-3dc2-46c7-84d1-8606289c55c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/.import/dodge.png-be0e3841b38ff2195d7be92d66b2bd9a.md5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/.import/dodge.png-be0e3841b38ff2195d7be92d66b2bd9a.stex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/.import/dodge.png-ff004bb974fe6645aa9012a0ec8f9ac2.md5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/.import/dodge.png-ff004bb974fe6645aa9012a0ec8f9ac2.stex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/.import/doublejump.png-e76e1f6425cd112c50a4231111358abe.md5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/.import/jump.png-ce03cb1088b7b54732874dc2c9f3e7f4.md5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/.import/punch3.png-2a435521a793fc7c9511cd59c4da682c.md5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/.import/punch3.png-2a435521a793fc7c9511cd59c4da682c.stex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/Assets/dodge.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/Assets/dodge.png.import" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/punch3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/punch3.png.import" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/DeathLine.gd" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/DeathLine.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Hurtbox.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Hurtbox.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player.tres" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player.tres" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player1.gd" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player1.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player1.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player21.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player21.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/livil10.gd" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/livil10.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/livil10.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/livil10.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Theme.tres" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Theme.tres" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +61,13 @@
       <workItem from="1667282152695" duration="157000" />
       <workItem from="1669636262589" duration="45000" />
       <workItem from="1669636317389" duration="10000" />
+      <workItem from="1669710562708" duration="10000" />
+      <workItem from="1669710578001" duration="20000" />
+      <workItem from="1669710603903" duration="12000" />
+      <workItem from="1669710628402" duration="7000" />
+      <workItem from="1669710640181" duration="16000" />
+      <workItem from="1669710662542" duration="12000" />
+      <workItem from="1669710680282" duration="39000" />
     </task>
     <servers />
   </component>
