@@ -11,15 +11,10 @@ const bullet_path = preload('bullet.tscn')
 var bullet_x
 var direction : bool = true
 var knockbacktime = 0
-func is_on_wall():
-	if $Wallchecker.is_colliding():
-		gravity =200
-		double_jump =1
-	else:
-		gravity =300
+
 func _shoot():
 	var bullet =  bullet_path.instance()
-	
+	yield(get_tree(), "idle_frame")
 	get_parent().add_child(bullet)
 	bullet.position = $Node2D/Position2D.global_position
 func _ready():
@@ -28,9 +23,6 @@ func _ready():
 
 pass
 func _physics_process(delta: float) -> void:
-	if is_fallen():
-		Health = 0
-	is_on_wall()
 	G.P1_velocity = _velocity
 	G.p1_direction = direction
 	G.p1_position = get_node(".").position
@@ -47,13 +39,11 @@ func _physics_process(delta: float) -> void:
 		$Node2D/Position2D.position.x = -bullet_x
 		$hitboxpivot/swordhitbox/CollisionShape2D.position.x = -shape_pos
 		direction = false
-		$Wallchecker.rotation_degrees = 90
 	if _velocity.x > 0:
 		$AnimatedSprite.flip_h = false
 		$hitboxpivot/swordhitbox/CollisionShape2D.position.x = shape_pos
 		$Node2D/Position2D.position.x = bullet_x
 		direction = true
-		$Wallchecker.rotation_degrees = -90
 	if Input.is_action_pressed("p1_walk"):
 		speed = 100
 	else:
@@ -100,9 +90,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("p1_duck"):
 			$Hurtbox/CollisionShape2D.set_deferred("disabled",false)
 			$DuckHurtBox/CollisionShape2D.set_deferred("disabled", true)
-func is_fallen():
-	return $Deathlinechecker.is_colliding()
 func _on_Hurtbox_area_entered(_area):
+	yield(get_tree(), "idle_frame")
 	Health -=10
 	if G.p1_position.x < G.p2_position.x:
 		_velocity.x = 0
