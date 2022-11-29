@@ -10,14 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="489c225b-3dc2-46c7-84d1-8606289c55c1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/DeathLine.gd" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/DeathLine.gd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Hurtbox.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Hurtbox.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player.tres" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player.tres" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player1.gd" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player1.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player1.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/livil10.gd" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/livil10.gd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/livil10.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/livil10.tscn" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CikiletaFighters/Theme.tres" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Theme.tres" afterDir="false" />
     </list>
@@ -68,6 +63,7 @@
       <workItem from="1669710640181" duration="16000" />
       <workItem from="1669710662542" duration="12000" />
       <workItem from="1669710680282" duration="39000" />
+      <workItem from="1669710824628" duration="6000" />
     </task>
     <servers />
   </component>
