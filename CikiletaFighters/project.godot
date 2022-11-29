@@ -130,9 +130,9 @@ Pause={
 
 [layer_names]
 
-2d_physics/layer_1="Ground"
-2d_physics/layer_2="Karakterler"
-2d_physics/layer_3="Platformlar"
+2d_physics/layer_1="karakter1"
+2d_physics/layer_2="karakter2"
+2d_physics/layer_6="Deathline"
 
 [physics]
 

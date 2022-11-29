@@ -214,6 +214,19 @@ visible = false
 margin_right = 4.0
 margin_bottom = 14.0
 
+[node name="Wallchecker" type="RayCast2D" parent="."]
+position = Vector2( 0, -10 )
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 15 )
+collision_mask = 4
+
+[node name="Deathlinechecker" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 20 )
+collision_mask = 32
+collide_with_areas = true
+
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="hitboxpivot/swordhitbox"]
