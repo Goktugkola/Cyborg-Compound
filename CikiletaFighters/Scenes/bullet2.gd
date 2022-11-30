@@ -23,9 +23,11 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if G.p2_direction == true and once:
 		velocity = Vector2(speed , 0)
+		$sprite_b.play("default")
 		once = false
 	if G.p2_direction == false and once:
 		velocity = Vector2(-speed, 0)
+		$sprite_b.play("default")
 		$sprite_b.flip_h = true
 		once = false
 	self.translate(velocity * delta)
