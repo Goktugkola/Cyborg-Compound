@@ -31,3 +31,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_impact(_body: Node) -> void:
 	queue_free()
+
+
+func _on_impactDetector_b_area_entered(area):
+	queue_free()
+	pass # Replace with function body.

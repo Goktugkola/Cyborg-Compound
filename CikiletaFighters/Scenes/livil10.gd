@@ -16,7 +16,7 @@ func _process(_delta):
 		$Livil1Ui/WhoWin.add_text("PLAYER 2 WON")
 		once = false
 		Engine.time_scale = 0.3
-		$Timer.start(2); yield($Timer, "timeout")
+		$Timer.start(0.3); yield($Timer, "timeout")
 		Engine.time_scale = 1
 		G.p1wonstatus += 1
 		$Livil1Ui/p1winstatus.clear()
@@ -27,7 +27,7 @@ func _process(_delta):
 		$Livil1Ui/WhoWin.add_text("PLAYER 1 WON")
 		once = false
 		Engine.time_scale = 0.3
-		$Timer.start(2); yield($Timer, "timeout")
+		$Timer.start(0.3); yield($Timer, "timeout")
 		Engine.time_scale = 1
 		G.p2wonstatus += 1
 		$Livil1Ui/p2winstatus.clear()

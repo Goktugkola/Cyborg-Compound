@@ -250,17 +250,18 @@ animations = [ {
 
 [node name="Player1" type="KinematicBody2D"]
 collision_layer = 0
-collision_mask = 9
+collision_mask = 15
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -14 )
 frames = SubResource( 2 )
-animation = "uppercut"
+animation = "punch1"
+frame = 3
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
-collision_layer = 0
-collision_mask = 15
+collision_layer = 8192
+collision_mask = 8201
 priority = 1.0
 
 [node name="hitboxpivot" type="Position2D" parent="."]

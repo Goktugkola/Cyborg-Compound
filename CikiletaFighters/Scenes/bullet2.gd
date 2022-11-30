@@ -21,7 +21,6 @@ func _ready():
 	impact_detectorb.connect("body_entered",self, "_on_impact")
 
 func _physics_process(delta: float) -> void:
-	
 	if G.p2_direction == true and once:
 		velocity = Vector2(speed , 0)
 		once = false
@@ -32,4 +31,9 @@ func _physics_process(delta: float) -> void:
 	self.translate(velocity * delta)
 
 func _on_impact(_body: Node) -> void:
+	queue_free()
+
+
+
+func _on_impactDetector_b_area_entered(area):
 	queue_free()
