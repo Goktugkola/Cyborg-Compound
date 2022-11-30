@@ -312,12 +312,12 @@ animations = [ {
 "frames": [ SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ) ],
 "loop": false,
 "name": "punch1",
-"speed": 5.0
+"speed": 18.0
 }, {
 "frames": [ SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ) ],
 "loop": false,
 "name": "punch2",
-"speed": 5.0
+"speed": 18.0
 }, {
 "frames": [ SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ) ],
 "loop": false,
@@ -327,7 +327,7 @@ animations = [ {
 "frames": [ SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ) ],
 "loop": false,
 "name": "uppercut",
-"speed": 5.0
+"speed": 24.0
 } ]
 
 [node name="Player1" type="KinematicBody2D"]
@@ -341,8 +341,8 @@ frames = SubResource( 2 )
 animation = "standing_up"
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
-collision_layer = 8192
-collision_mask = 8201
+collision_layer = 3072
+collision_mask = 2063
 priority = 1.0
 
 [node name="hitboxpivot" type="Position2D" parent="."]
