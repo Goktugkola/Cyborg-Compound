@@ -92,6 +92,8 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite.play("JumpInAir")
 	if is_on_floor():
 		jump = false
+	if _velocity.y != 0:
+		$AnimatedSprite.play("JumpInAir")
 		#Duck
 		if is_on_floor():
 			if Input.is_action_pressed("p2_duck"):

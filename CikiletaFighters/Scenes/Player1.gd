@@ -23,12 +23,12 @@ func is_on_wall():
 		gravity =300
 func _shoot():
 	var bullet =  bullet_path.instance()
-	yield(get_tree(), "idle_frame")
 	get_parent().get_parent().add_child(bullet)
 	bullet.position = $Node2D/Position2D.global_position
 func _ready():
 		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
 		bullet_x = $Node2D/Position2D.position.x
+		
 func move(delta):
 	_velocity.y += gravity * delta
 	_velocity = move_and_slide(_velocity,Vector2.UP)
@@ -90,14 +90,14 @@ func _physics_process(delta: float) -> void:
 		_velocity.y = -jump_power
 		jump = true
 		double_jump = 1
+		$AnimatedSprite.play("Jump")
 		$Timer.start(1); yield($Timer, "timeout")
 	if Input.is_action_just_released("p1_up") and _velocity.y < 0:
 			_velocity.y/=2
 	if double_jump == 1 and Input.is_action_just_pressed("p1_up"):
+		$AnimatedSprite.play("JumpInAir")
 		_velocity.y = -jump_power
 		double_jump = 0
-	if jump == true:
-		$AnimatedSprite.play("JumpInAir")
 	if is_on_floor():
 		jump = false
 	if _velocity.y != 0:
