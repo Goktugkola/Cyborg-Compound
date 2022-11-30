@@ -28,32 +28,26 @@ atlas = ExtResource( 3 )
 region = Rect2( 0, 150, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=46]
-flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=47]
-flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 50, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=48]
-flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 100, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=49]
-flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 150, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=50]
-flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 200, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=51]
-flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 0, 250, 50, 50 )
 

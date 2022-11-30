@@ -33,9 +33,5 @@ func _process(_delta):
 		get_tree().change_scene("res://Scenes/livil10.tscn")
 	if Input.is_action_just_pressed("reset"):
 		G.x = G.x + 1
-		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	
 

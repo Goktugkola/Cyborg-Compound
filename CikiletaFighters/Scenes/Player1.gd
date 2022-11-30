@@ -12,6 +12,7 @@ var bullet_x
 var direction : bool = true
 var knockbacktime = 0
 var duck: bool = false
+var combo = 0
 func is_fallen():
 	return $Deathlinechecker.is_colliding()
 func is_on_wall():
