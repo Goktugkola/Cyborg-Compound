@@ -11,10 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="489c225b-3dc2-46c7-84d1-8606289c55c1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player.tres" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player.tres" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player1.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/Player1.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Scenes/livil10.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Scenes/livil10.tscn" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CikiletaFighters/Theme.tres" beforeDir="false" afterPath="$PROJECT_DIR$/CikiletaFighters/Theme.tres" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +60,8 @@
       <workItem from="1669710662542" duration="12000" />
       <workItem from="1669710680282" duration="39000" />
       <workItem from="1669710824628" duration="6000" />
+      <workItem from="1669792053549" duration="641000" />
+      <workItem from="1669804530187" duration="114000" />
     </task>
     <servers />
   </component>
