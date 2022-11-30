@@ -16,6 +16,13 @@ var combo = 0
 const dash_speed =400
 const dash_duration = 0.4
 onready var dash = $Dash
+func melee():
+		###### CCC MELEE ATACK CCC ######
+	if Input.is_action_just_pressed("p1_melee"):
+		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
+		$Timer.start(0.1); yield($Timer, "timeout")
+		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
+	
 func is_fallen():
 	return $Deathlinechecker.is_colliding()
 func is_on_wall():
@@ -47,6 +54,7 @@ func _physics_process(delta: float) -> void:
 	G.p1_position = get_node(".").position
 	if !duck:
 		move(delta)
+		melee()
 	
 	var _horizontal_direction =(
 	Input.get_action_strength("p1_right")
@@ -80,12 +88,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			$AnimatedSprite.play("Idle")
 			
-	###### CCC MELEE ATACK CCC ######
-	if Input.is_action_just_pressed("p1_melee"):
-		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
-		$Timer.start(0.1); yield($Timer, "timeout")
-		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
-	
+
 	# BULLET!
 	if Input.is_action_just_pressed("p1_shoot"):
 		_shoot()
@@ -122,12 +125,14 @@ func _physics_process(delta: float) -> void:
 func _on_Hurtbox_area_entered(_area):
 	yield(get_tree(), "idle_frame")
 	Health -=10
-	if G.p1_position.x < G.p2_position.x:
-		_velocity.x = 0
-		get_node(".").position.x -= 20
-	else:
-		_velocity.x = 0
-		get_node(".").position.x += 20
+	knockback()
+func knockback():
+		if G.p1_position.x < G.p2_position.x:
+			_velocity.x = 0
+			get_node(".").position.x -= 20
+		else:
+			_velocity.x = 0
+			get_node(".").position.x += 20
 
 func _Dodge()->void:
 	if Input.is_action_just_pressed("p1_dodge") and dash.can_dash and !dash._is_dashing():
