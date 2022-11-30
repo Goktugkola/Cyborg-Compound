@@ -13,6 +13,9 @@ var bullet_x
 var direction : bool = true
 var knockbacktime = 0
 var duck : bool = false
+onready var dash = $Dash
+const dash_speed =400
+const dash_duration = 0.4
 func is_fallen():
 	return $DeathlineChecker.is_colliding()
 func is_on_wall():
@@ -115,3 +118,10 @@ func _on_Hurtbox_area_entered(_area):
 		_velocity.x = 0
 		get_node(".").position.x += 20
 	
+func _Dodge()->void:
+	if Input.is_action_just_pressed("p2_dodge") and dash.can_dash and !dash._is_dashing():
+		$AnimatedSprite.play("Dodge")
+		dash.start_dash(dash_duration)
+		$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
+		$Timer.start(0.2); yield($Timer, "timeout")
+		$Hurtbox/CollisionShape2D.set_deferred("disabled", false)

@@ -1,6 +1,6 @@
 extends Node2D
 
-var dash_delay = 0.3
+var dash_delay = 0.2
 onready var DurationTimer = $DurationTimer
 var can_dash = true
 

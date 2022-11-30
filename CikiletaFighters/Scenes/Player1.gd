@@ -93,7 +93,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.play("Run")
 		elif _velocity.x == 100 and !duck or _velocity.x == -100 and !duck:
 			$AnimatedSprite.play("Walk")
-		else:
+		elif !dash._is_dashing() and !duck:
 			$AnimatedSprite.play("Idle")
 			
 
@@ -121,10 +121,12 @@ func _physics_process(delta: float) -> void:
 	#####Duck#####
 	if is_on_floor():
 		if Input.is_action_pressed("p1_duck"):
+			$AnimatedSprite.play("Duck")
 			$Hurtbox/CollisionShape2D.set_deferred("disabled",true)
 			$DuckHurtBox/CollisionShape2D.set_deferred("disabled", false)
 			duck = true
 		if Input.is_action_just_released("p1_duck"):
+			$AnimatedSprite.play("standing_up")
 			$Hurtbox/CollisionShape2D.set_deferred("disabled",false)
 			$DuckHurtBox/CollisionShape2D.set_deferred("disabled", true)
 			duck = false
@@ -144,6 +146,7 @@ func knockback():
 
 func _Dodge()->void:
 	if Input.is_action_just_pressed("p1_dodge") and dash.can_dash and !dash._is_dashing():
+		$AnimatedSprite.play("Dodge")
 		dash.start_dash(dash_duration)
 		$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 		$Timer.start(0.2); yield($Timer, "timeout")
