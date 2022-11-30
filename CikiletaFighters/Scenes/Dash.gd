@@ -6,7 +6,7 @@ var can_dash = true
 
 func start_dash(duration):
 	DurationTimer.wait_time = duration
-	DurationTimer.start() 
+	DurationTimer.start()
 
 
 func _is_dashing():
