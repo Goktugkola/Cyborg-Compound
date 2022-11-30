@@ -23,7 +23,7 @@ func is_on_wall():
 func _shoot():
 	var bullet =  bullet_path.instance()
 	yield(get_tree(), "idle_frame")
-	get_parent().add_child(bullet)
+	get_parent().get_parent().add_child(bullet)
 	bullet.position = $Node2D/Position2D.global_position
 func _ready():
 		shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x

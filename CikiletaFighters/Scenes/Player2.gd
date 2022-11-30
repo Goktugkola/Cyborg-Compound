@@ -31,7 +31,7 @@ func move(delta):
 func _shoot():
 	var bullet =  bullet_path.instance()
 	yield(get_tree(), "idle_frame")
-	get_parent().add_child(bullet)
+	get_parent().get_parent().add_child(bullet)
 	bullet.position = $Node2D/Position2D.global_position
 func _physics_process(delta: float) -> void:
 	if is_fallen():
@@ -106,7 +106,7 @@ func _physics_process(delta: float) -> void:
 func _on_Hurtbox_area_entered(_area):
 	yield(get_tree(), "idle_frame")
 	Health -=10
-	if G.p1_position.x < G.p2_position.x:
+	if G.p1_position.x > G.p2_position.x:
 		_velocity.x = 0
 		get_node(".").position.x -= 20
 	else:
