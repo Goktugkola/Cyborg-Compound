@@ -21,12 +21,10 @@ margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="optionsegment" type="VBoxContainer" parent="."]
-anchor_top = 0.5
-anchor_bottom = 0.5
 margin_left = 362.0
-margin_top = 93.0
+margin_top = 35.0
 margin_right = 662.0
-margin_bottom = 393.0
+margin_bottom = 335.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 5

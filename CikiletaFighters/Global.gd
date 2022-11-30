@@ -8,6 +8,7 @@ var p1_direction
 var p2_direction
 var p1_position
 var p2_position
+var currentCamera
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

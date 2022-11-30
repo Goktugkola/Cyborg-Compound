@@ -17,10 +17,10 @@ func is_fallen():
 	return $Deathlinechecker.is_colliding()
 func is_on_wall():
 	if $Wallchecker.is_colliding():
-		gravity =200
+		gravity =300
 		double_jump =1
 	else:
-		gravity =300
+		gravity =400
 func _shoot():
 	var bullet =  bullet_path.instance()
 	get_parent().get_parent().add_child(bullet)

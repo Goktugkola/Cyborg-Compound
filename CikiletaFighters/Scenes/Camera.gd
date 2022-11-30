@@ -8,7 +8,6 @@ func _ready():
 	viewport_rect = get_viewport_rect()
 	set_process(get_child_count() > 0)
 	
-
 func calculate_center(rect: Rect2) -> Vector2:
 	return Vector2(
 		rect.position.x + rect.size.x / 2,
@@ -28,6 +27,8 @@ func _draw() -> void:
 	draw_circle(calculate_center(camera_rect), 5, Color("ffffff"))
 
 func _process(_delta: float) -> void:
+	
+	G.set("currentCamera", self)
 	camera_rect = Rect2(get_child(0).global_position, Vector2())
 	for index in get_child_count():
 		if index == 0:

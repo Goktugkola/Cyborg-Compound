@@ -3,7 +3,7 @@ var speed = 300
 var gravity = 300
 var _velocity := Vector2.ZERO
 var jump = false
-export var fall_gravity_scale := 150.00
+export var fall_gravity_scale := 150
 export var jump_power := 200.0
 var double_jump = 0
 export var Health = 100
@@ -17,10 +17,10 @@ func is_fallen():
 	return $DeathlineChecker.is_colliding()
 func is_on_wall():
 	if $Wallchecker.is_colliding():
-		gravity =200
+		gravity =300
 		double_jump =1
 	else:
-		gravity =300
+		gravity =400
 func _ready():
 	shape_pos = $hitboxpivot/swordhitbox/CollisionShape2D.position.x
 	bullet_x = $Node2D/Position2D.position.x

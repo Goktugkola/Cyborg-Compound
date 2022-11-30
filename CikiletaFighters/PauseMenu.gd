@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 var is_paused = false setget set_is_paused
 func _unhandled_input(event):

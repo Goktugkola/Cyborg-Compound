@@ -3,56 +3,53 @@
 [ext_resource path="res://Scenes/HealthBar.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Livil1Ui.gd" type="Script" id=2]
 
-[node name="Livil1Ui" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Livil1Ui" type="Node2D"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 81.0 ]
-}
 
 [node name="WhoWin" type="RichTextLabel" parent="."]
-margin_left = 450.0
-margin_top = 195.0
-margin_right = 577.0
-margin_bottom = 235.0
+margin_left = -60.0
+margin_top = -125.0
+margin_right = 67.0
+margin_bottom = -85.0
 
 [node name="p2winstatus" type="RichTextLabel" parent="."]
-margin_left = 351.0
-margin_top = 81.0
-margin_right = 418.0
-margin_bottom = 121.0
+margin_left = -111.0
+margin_top = -233.0
+margin_right = -44.0
+margin_bottom = -193.0
 
 [node name="p1winstatus" type="RichTextLabel" parent="."]
-margin_left = 713.0
-margin_top = 81.0
-margin_right = 783.0
-margin_bottom = 121.0
+margin_left = 251.0
+margin_top = -233.0
+margin_right = 321.0
+margin_bottom = -193.0
 
 [node name="HealthBar1" parent="." instance=ExtResource( 1 )]
-margin_left = 127.0
-margin_top = 107.0
-margin_right = 193.0
-margin_bottom = 123.0
+margin_left = -335.0
+margin_top = -207.0
+margin_right = -269.0
+margin_bottom = -191.0
+rect_min_size = Vector2( 66, 16 )
 
 [node name="HealthBar2" parent="." instance=ExtResource( 1 )]
 anchor_right = 0.853
-margin_left = 766.0
-margin_top = 105.0
-margin_right = 832.0
-margin_bottom = 121.0
+margin_left = 304.0
+margin_top = -209.0
+margin_right = 370.0
+margin_bottom = -193.0
+rect_min_size = Vector2( 66, 16 )
 rect_pivot_offset = Vector2( 50, 8 )
 
 [node name="P1" type="RichTextLabel" parent="."]
-margin_left = 197.0
-margin_top = 82.0
-margin_right = 366.0
-margin_bottom = 122.0
+margin_left = -265.0
+margin_top = -232.0
+margin_right = -96.0
+margin_bottom = -192.0
 text = "PLAYER 1 WIN COUNT : "
 
 [node name="P2" type="RichTextLabel" parent="."]
-margin_left = 557.0
-margin_top = 82.0
-margin_right = 726.0
-margin_bottom = 122.0
+margin_left = 95.0
+margin_top = -232.0
+margin_right = 264.0
+margin_bottom = -192.0
 text = "PLAYER 2 WIN COUNT : "

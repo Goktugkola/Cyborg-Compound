@@ -8,6 +8,8 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(_delta):
+	$PauseMenu.position = $livil1playground/Camera.get_camera_screen_center()
+	$Livil1Ui.position = $livil1playground/Camera.get_camera_screen_center()
 	$Livil1Ui/HealthBar1.value = $livil1playground/Camera/Player1/HealthBar.value
 	$Livil1Ui/HealthBar2.value = $livil1playground/Camera/Player2/HealthBar.value
 	if($livil1playground/Camera/Player1/HealthBar.value <= 0 && once == true):
