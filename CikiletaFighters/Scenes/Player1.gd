@@ -1,5 +1,5 @@
 extends KinematicBody2D
-var speed = 300
+
 var gravity = 300
 var _velocity = Vector2.ZERO
 var jump = false
@@ -13,6 +13,9 @@ var direction : bool = true
 var knockbacktime = 0
 var duck: bool = false
 var combo = 0
+const dash_speed =400
+const dash_duration = 0.4
+onready var dash = $Dash
 func is_fallen():
 	return $Deathlinechecker.is_colliding()
 func is_on_wall():
@@ -35,6 +38,7 @@ func move(delta):
 
 pass
 func _physics_process(delta: float) -> void:
+	var speed = dash_speed if dash._is_dashing() else 300
 	if is_fallen():
 		Health = 0
 	is_on_wall()
@@ -113,6 +117,7 @@ func _physics_process(delta: float) -> void:
 			$Hurtbox/CollisionShape2D.set_deferred("disabled",false)
 			$DuckHurtBox/CollisionShape2D.set_deferred("disabled", true)
 			duck = false
+	_Dodge()
 
 func _on_Hurtbox_area_entered(_area):
 	yield(get_tree(), "idle_frame")
@@ -124,3 +129,9 @@ func _on_Hurtbox_area_entered(_area):
 		_velocity.x = 0
 		get_node(".").position.x += 20
 
+func _Dodge()->void:
+	if Input.is_action_just_pressed("p1_dodge") and dash.can_dash and !dash._is_dashing():
+		dash.start_dash(dash_duration)
+		$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
+		$Timer.start(0.2); yield($Timer, "timeout")
+		$Hurtbox/CollisionShape2D.set_deferred("disabled", false)
