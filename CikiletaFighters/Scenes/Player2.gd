@@ -1,5 +1,4 @@
 extends KinematicBody2D
-var speed = 300
 var gravity = 300
 var _velocity := Vector2.ZERO
 var jump = false
@@ -37,6 +36,7 @@ func _shoot():
 	get_parent().get_parent().add_child(bullet)
 	bullet.position = $Node2D/Position2D.global_position
 func _physics_process(delta: float) -> void:
+	var speed = dash_speed if dash._is_dashing() else 300
 	if is_fallen():
 		Health = 0
 	is_on_wall()
