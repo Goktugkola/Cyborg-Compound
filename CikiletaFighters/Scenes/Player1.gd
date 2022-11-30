@@ -80,6 +80,7 @@ func _physics_process(delta: float) -> void:
 		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
 		$Timer.start(0.1); yield($Timer, "timeout")
 		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
+	
 	# BULLET!
 	if Input.is_action_just_pressed("p1_shoot"):
 		_shoot()
@@ -101,15 +102,17 @@ func _physics_process(delta: float) -> void:
 	if _velocity.y != 0:
 		$AnimatedSprite.play("JumpInAir")
 
-		#####Duck#####
-	if Input.is_action_pressed("p1_duck"):
-		$Hurtbox/CollisionShape2D.set_deferred("disabled",true)
-		$DuckHurtBox/CollisionShape2D.set_deferred("disabled", false)
-		duck = true
-	if Input.is_action_just_released("p1_duck"):
+	#####Duck#####
+	if is_on_floor():
+		if Input.is_action_pressed("p1_duck"):
+			$Hurtbox/CollisionShape2D.set_deferred("disabled",true)
+			$DuckHurtBox/CollisionShape2D.set_deferred("disabled", false)
+			duck = true
+		if Input.is_action_just_released("p1_duck"):
 			$Hurtbox/CollisionShape2D.set_deferred("disabled",false)
 			$DuckHurtBox/CollisionShape2D.set_deferred("disabled", true)
 			duck = false
+
 func _on_Hurtbox_area_entered(_area):
 	yield(get_tree(), "idle_frame")
 	Health -=10
