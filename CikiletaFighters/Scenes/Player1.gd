@@ -16,21 +16,24 @@ var combo = 0
 const dash_speed =400
 const dash_duration = 0.4
 onready var dash = $Dash
+var is_attacking: bool = false
 func melee():
 		###### CCC MELEE ATACK CCC ######
-	if Input.is_action_just_pressed("p1_melee"):
+	if Input.is_action_just_pressed("p1_melee") and !duck:
+		is_attacking = true
 		combo += 1
-		$AnimatedSprite.stop()
 		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
 		$Timer.start(0.1); yield($Timer, "timeout")
 		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = true
 		if combo == 1:
 			$AnimatedSprite.play("punch1")
+
 		elif combo == 2:
 			$AnimatedSprite.play("punch2")
+
 		elif combo == 3:
 			$AnimatedSprite.play("uppercut")
-		
+			combo = 0
 func is_fallen():
 	return $Deathlinechecker.is_colliding()
 func is_on_wall():
@@ -93,7 +96,7 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite.play("Run")
 		elif _velocity.x == 100 and !duck or _velocity.x == -100 and !duck:
 			$AnimatedSprite.play("Walk")
-		elif !dash._is_dashing() and !duck:
+		elif !dash._is_dashing() and !duck and !is_attacking:
 			$AnimatedSprite.play("Idle")
 			
 
@@ -151,3 +154,14 @@ func _Dodge()->void:
 		$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 		$Timer.start(0.2); yield($Timer, "timeout")
 		$Hurtbox/CollisionShape2D.set_deferred("disabled", false)
+
+
+
+
+
+
+func _on_AnimatedSprite_animation_finished():
+	if !duck:
+		is_attacking = false
+		$AnimatedSprite.play("Idle")
+	pass # Replace with function body.
