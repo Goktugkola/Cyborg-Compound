@@ -17,6 +17,7 @@ const dash_speed =400
 const dash_duration = 0.4
 onready var dash = $Dash
 var is_attacking: bool = false
+var jump_dash: bool = false
 func melee():
 		###### CCC MELEE ATACK CCC ######
 	if Input.is_action_just_pressed("p1_melee") and !duck:
@@ -118,7 +119,7 @@ func _physics_process(delta: float) -> void:
 		double_jump = 0
 	if is_on_floor():
 		jump = false
-	if _velocity.y != 0:
+	if _velocity.y != 0 and jump_dash == false:
 		$AnimatedSprite.play("JumpInAir")
 
 	#####Duck#####
@@ -148,20 +149,28 @@ func knockback():
 			get_node(".").position.x += 20
 
 func _Dodge()->void:
-	if Input.is_action_just_pressed("p1_dodge") and dash.can_dash and !dash._is_dashing():
+	if Input.is_action_just_pressed("p1_dodge") and dash.can_dash and !dash._is_dashing() and is_on_floor():
 		$AnimatedSprite.play("Dodge")
 		dash.start_dash(dash_duration)
 		$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
 		$Timer.start(0.2); yield($Timer, "timeout")
 		$Hurtbox/CollisionShape2D.set_deferred("disabled", false)
-
-
+	elif Input.is_action_just_pressed("p1_dodge") and dash.can_dash and !dash._is_dashing():
+		jump_dash = true
+		dash.start_dash(dash_duration)
+		$AnimatedSprite.play("AirDodge")
+		$Hurtbox/CollisionShape2D.set_deferred("disabled", true)
+		$Timer.start(0.2); yield($Timer, "timeout")
+		$Hurtbox/CollisionShape2D.set_deferred("disabled", false)
+		jump_dash = false
 
 
 
 
 func _on_AnimatedSprite_animation_finished():
-	if !duck:
+	if !duck and is_on_floor():
 		is_attacking = false
 		$AnimatedSprite.play("Idle")
+	if jump_dash == false and !is_on_floor():
+		$AnimatedSprite.play("JumpInAir")
 	pass # Replace with function body.

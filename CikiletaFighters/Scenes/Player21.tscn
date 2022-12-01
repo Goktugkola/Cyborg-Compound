@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=86 format=2]
 
 [ext_resource path="res://Assets/player1/run.png" type="Texture" id=1]
 [ext_resource path="res://Assets/player1/Woodcutter_walk.png" type="Texture" id=2]
@@ -16,6 +16,31 @@
 [ext_resource path="res://Assets/player1/punch1.png" type="Texture" id=14]
 [ext_resource path="res://Assets/player1/punch3.png" type="Texture" id=15]
 [ext_resource path="res://Assets/player1/punch2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/player1/airdodge.png" type="Texture" id=17]
+
+[sub_resource type="AtlasTexture" id=87]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=88]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 50, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=89]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 100, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=90]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 150, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=91]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 200, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=92]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 250, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=58]
 atlas = ExtResource( 12 )
@@ -42,22 +67,18 @@ atlas = ExtResource( 12 )
 region = Rect2( 0, 250, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=64]
-flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 0, 0, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=65]
-flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 0, 50, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=66]
-flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 0, 100, 50, 50 )
 
 [sub_resource type="AtlasTexture" id=67]
-flags = 4
 atlas = ExtResource( 13 )
 region = Rect2( 0, 150, 50, 50 )
 
@@ -227,6 +248,22 @@ region = Rect2( 0, 100, 50, 50 )
 atlas = ExtResource( 16 )
 region = Rect2( 0, 150, 50, 50 )
 
+[sub_resource type="AtlasTexture" id=83]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 200, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=84]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 250, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=85]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 300, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=86]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 350, 50, 50 )
+
 [sub_resource type="AtlasTexture" id=76]
 atlas = ExtResource( 15 )
 region = Rect2( 0, 0, 50, 50 )
@@ -257,10 +294,15 @@ region = Rect2( 0, 300, 50, 50 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ) ],
+"loop": false,
+"name": "AirDodge",
+"speed": 24.0
+}, {
 "frames": [ SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ) ],
 "loop": false,
 "name": "Dodge",
-"speed": 5.0
+"speed": 24.0
 }, {
 "frames": [ SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ) ],
 "loop": false,
@@ -302,6 +344,11 @@ animations = [ {
 "name": "punch2",
 "speed": 18.0
 }, {
+"frames": [ SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ) ],
+"loop": true,
+"name": "standing_up",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ) ],
 "loop": false,
 "name": "uppercut",
@@ -316,7 +363,7 @@ script = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -14 )
 frames = SubResource( 2 )
-animation = "uppercut"
+animation = "AirDodge"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -10 )
@@ -368,6 +415,7 @@ collide_with_areas = true
 
 [node name="Dash" parent="." instance=ExtResource( 11 )]
 
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 
 [editable path="hitboxpivot/swordhitbox"]
