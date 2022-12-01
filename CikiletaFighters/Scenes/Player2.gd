@@ -18,9 +18,11 @@ const dash_duration = 0.4
 onready var dash = $Dash
 var is_attacking: bool = false
 var jump_dash: bool = false
+var death: bool = false
 func melee():
 		###### CCC MELEE ATACK CCC ######
-	if Input.is_action_just_pressed("p2_melee") and !duck:
+	if Input.is_action_just_pressed("p2_melee") and !duck and _velocity.x == 0:
+		$punch.play()
 		is_attacking = true
 		combo += 1
 		$hitboxpivot/swordhitbox/CollisionShape2D.disabled = false
@@ -57,6 +59,9 @@ func move(delta):
 
 pass
 func _physics_process(delta: float) -> void:
+	if Health <= 0 and death == false:
+		$death.play()
+		death = true
 	var speed = dash_speed if dash._is_dashing() else 300
 	if is_fallen():
 		Health = 0
@@ -105,6 +110,7 @@ func _physics_process(delta: float) -> void:
 		_shoot()
 		#jump
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+		$jump.play()
 		_velocity.y = -jump_power
 		jump = true
 		double_jump = 1
