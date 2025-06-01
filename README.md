@@ -26,10 +26,12 @@ Cyborg Compound is designed for quick-paced duels between friends. Despite being
 
 Here are some in-game screenshots:
 
-![Screenshot 1 Description]("CikiletaFighters\Gameplay1.png")
+![Screenshot 1 Description]("CikiletaFighters
+/Gameplay1.png")
 *Optional caption for screenshot 1*
 
-![Screenshot 2 Description](CikiletaFighters\Gameplay2.png)
+![Screenshot 2 Description](CikiletaFighters
+/Gameplay2.png)
 *Optional caption for screenshot 2*
 
 ---
